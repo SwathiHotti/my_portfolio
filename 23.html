@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swathi Hotti | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --secondary: #3b82f6;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --gray: #94a3b8;
+      --card-bg: #ffffff;
+      --section-bg: #f1f5f9;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid white;
+      margin: 0 auto 1.5rem;
+      object-fit: cover;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .title {
+      font-size: 1.25rem;
+      color: #e2e8f0;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-3px);
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: white;
+      color: var(--primary);
+    }
+
+    .btn-outline {
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Sections */
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      color: var(--dark);
+      position: relative;
+      display: inline-block;
+      padding-bottom: 0.5rem;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* About Section */
+    #about {
+      background-color: var(--section-bg);
+    }
+
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .about-text {
+      width: 100%;
+    }
+
+    .about-text h3 {
+      color: var(--dark);
+      margin: 2rem 0 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    .about-text p {
+      margin-bottom: 1.5rem;
+      color: #475569;
+      text-align: center;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin: 1.5rem auto 0;
+      max-width: 100%;
+    }
+
+    .skill-tag {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-info {
+      padding: 1.5rem;
+    }
+
+    .project-info h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+
+    .project-info p {
+      color: #64748b;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .project-links a {
+      font-size: 0.9rem;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      transition: color 0.3s ease;
+    }
+
+    .project-links a:hover {
+      color: var(--secondary);
+    }
+
+    /* Experience & Education */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      background: #e2e8f0;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -1px;
+    }
+
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+
+    .timeline-content {
+      padding: 1.5rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content::after {
+      content: '';
+      position: absolute;
+      border-style: solid;
+      width: 0;
+      height: 0;
+      top: 30px;
+      right: -15px;
+      border-width: 10px 0 10px 15px;
+      border-color: transparent transparent transparent white;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content::after {
+      content: '';
+      position: absolute;
+      border-style: solid;
+      width: 0;
+      height: 0;
+      top: 30px;
+      left: -15px;
+      border-width: 10px 15px 10px 0;
+      border-color: transparent white transparent transparent;
+    }
+
+    .timeline-item h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .timeline-item .date {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .timeline-item p {
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    /* Contact Section */
+    #contact {
+      background-color: var(--section-bg);
+    }
+
+    .contact-container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .contact-item {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact-item i {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .contact-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+
+    .contact-item p, .contact-item a {
+      color: #64748b;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: var(--primary);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: #cbd5e1;
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .about-content {
+        padding: 0 1.5rem;
+      }
+
+      .about-img {
+        text-align: center;
+      }
+
+      .about-img img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .timeline::after {
+        left: 31px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+
+      .timeline-item:nth-child(even) {
+        left: 0;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-content::after,
+      .timeline-item:nth-child(even) .timeline-content::after {
+        left: 15px;
+        border: none;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-top: 15px solid white;
+        top: 100%;
+        right: auto;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .contact-info {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <h1>Swathi Hotti</h1>
+      <p class="title">Aspiring Software Engineer</p>
+      <div class="social-links">
+        <a href="https://github.com/SwathiHotti" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/swathi-hotti/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+      <div class="cta-buttons">
+        <a href="#contact" class="btn btn-primary">Contact Me</a>
+        <a href="https://drive.google.com/file/d/1g8VIReXFaRwX1OFEsRT8sbzg_VR-73iU/view?usp=drivesdk" class="btn btn-outline" target="_blank" rel="noopener noreferrer">View Resume</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Me</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Hello! I'm Swathi Hotti, an aspiring Software Engineer with a passion for creating innovative solutions. I have hands-on experience in Java, IoT, and web development, and I'm always eager to learn new technologies and methodologies.</p>
+          <p>My journey in technology started with a curiosity about how things work, which led me to pursue a degree in Electronics Engineering. Along the way, I discovered my passion for software development and have been building projects to enhance my skills.</p>
+          <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying outdoor activities.</p>
+          
+          <h3 style="margin-top: 2rem; color: var(--dark);">Technical Skills</h3>
+          <div class="skills">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">HTML/CSS</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">IoT</span>
+            <span class="skill-tag">Embedded Systems</span>
+            <span class="skill-tag">Problem Solving</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>My Projects</h2>
+      </div>
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-info">
+            <h3>Smart Wheelchair</h3>
+            <p>An IoT-driven mobility solution featuring voice commands and obstacle avoidance for enhanced accessibility.</p>
+            <div class="project-links">
+              <a href="#"><i class="fab fa-github"></i> Code</a>
+              <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-info">
+            <h3>1-8 DeMux</h3>
+            <p>Digital system using logic gates and select signals to route inputs to multiple outputs.</p>
+            <div class="project-links">
+              <a href="#"><i class="fab fa-github"></i> Code</a>
+              <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-info">
+            <h3>Portfolio Website</h3>
+            <p>Personal portfolio website built with HTML, CSS, and JavaScript to showcase my projects and skills.</p>
+            <div class="project-links">
+              <a href="#"><i class="fab fa-github"></i> Code</a>
+              <a href="#"><i class="fas fa-external-link-alt"></i> View Live</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="section" style="background-color: var(--section-bg);">
+    <div class="container">
+      <div class="section-title">
+        <h2>Experience</h2>
+      </div>
+      <div class="timeline">
+        <!-- Experience 1 -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h4>Software Development Intern</h4>
+            <span class="date">Jan 2023 – Mar 2023</span>
+            <p>Kodnest Technologies, Bengaluru</p>
+            <p>Developed Java backend tasks, MySQL integration, frontend features, and participated in manual testing as a team member.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Education</h2>
+      </div>
+      <div class="timeline">
+        <!-- Education 1 -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h4>B.E. in Electronics</h4>
+            <span class="date">2021 - 2025</span>
+            <p>Poojya Doddappa College of Engineering, Kalaburagi</p>
+            <p>CGPA: 7.97/10</p>
+          </div>
+        </div>
+        
+        <!-- Education 2 -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h4>12th Grade</h4>
+            <span class="date">2021</span>
+            <p>SARVAJNA PU College</p>
+            <p>Percentage: 84%</p>
+          </div>
+        </div>
+        
+        <!-- Education 3 -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h4>10th Grade</h4>
+            <span class="date">2019</span>
+            <p>Chandrakant Patil School, Gulbarga</p>
+            <p>Percentage: 77.2%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" class="section" style="background-color: var(--section-bg);">
+    <div class="container">
+      <div class="section-title">
+        <h2>Certifications</h2>
+      </div>
+      <div class="projects-grid">
+        <!-- Certification 1 -->
+        <div class="project-card">
+          <div class="project-info">
+            <h3>Introduction to Internet of Things</h3>
+            <p>NPTEL</p>
+            <p class="date">Issued: Jun 2024</p>
+            <div class="project-links" style="margin-top: 1rem;">
+              <a href="#"><i class="fas fa-certificate"></i> View Certificate</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certification 2 -->
+        <div class="project-card">
+          <div class="project-info">
+            <h3>Artificial Intelligence</h3>
+            <p>Honeywell</p>
+            <p class="date">Issued: Dec 2024</p>
+            <div class="project-links" style="margin-top: 1rem;">
+              <a href="#"><i class="fas fa-certificate"></i> View Certificate</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certification 3 -->
+        <div class="project-card">
+          <div class="project-info">
+            <h3>Data Analytics</h3>
+            <p>Digisnare Technologies</p>
+            <p class="date">Issued: Dec 2024</p>
+            <div class="project-links" style="margin-top: 1rem;">
+              <a href="#"><i class="fas fa-certificate"></i> View Certificate</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Get In Touch</h2>
+        <p style="color: #64748b; margin-top: 1rem;">Feel free to reach out for collaborations or just a friendly hello!</p>
+      </div>
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <h3>Email</h3>
+            <a href="mailto:swathirhotti123@gmail.com">swathirhotti123@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>Location</h3>
+            <p>Bengaluru, Karnataka, India</p>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <h3>Phone</h3>
+            <a href="tel:+918088687565">+91 8088687565</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="year">2025</span> Swathi Hotti. All rights reserved.</p>
+      <div class="social-links" style="margin: 1rem 0;">
+        <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p>Made with <i class="fas fa-heart" style="color: #ef4444;"></i> by Swathi Hotti</p>
+    </div>
+  </footer>
+
+  <script>
+    // Update year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
