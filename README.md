@@ -37,10 +37,4 @@ It showcases my work, technical skills, and experiences, allowing visitors and r
 
 ---
 
-## 🧑‍💻 How to Use Locally
 
-If you want to run this website on your local system:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/portfolio.git
